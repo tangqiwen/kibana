@@ -1,11 +1,16 @@
 [[docker]]
-== Running Kibana on Docker
+== Running Kibana on Docker 基于Docker 运行Kibana
 Docker images for Kibana are available from the Elastic Docker registry. The
 base image is https://hub.docker.com/_/centos/[centos:7].
+
+Kibana Dokcer 镜像来自于Elastic Docker 仓库，它们的基础像是 centos:7.
 
 A list of all published Docker images and tags is available at
 https://www.docker.elastic.co[www.docker.elastic.co]. The source code is in
 https://github.com/elastic/kibana-docker/tree/{branch}[GitHub].
+
+在https://www.docker.elastic.co[www.docker.elastic.co] 列出所有发布可用的Docker images和tag.
+这些镜像的源码在https://github.com/elastic/kibana-docker/tree/{branch}[GitHub]
 
 These images are free to use under the Elastic license. They contain open source 
 and free commercial features and access to paid commercial features.  
@@ -14,9 +19,12 @@ paid commercial features. See the
 https://www.elastic.co/subscriptions[Subscriptions] page for information about 
 Elastic license levels.
 
+这些镜像是在Elastic license 范围可自由使用；它们包括开源的代码和免费的商业功能，并且还可以访问付费的商业功能。
+付费商业功能可试用30天。更多关于Elastic license levels请看https://www.elastic.co/subscriptions[Subscriptions] 。
+
 [float]
 [[pull-image]]
-=== Pulling the image
+=== Pulling the image   拉取镜像 （可以的镜像列表网址获得所有镜像的版本 https://www.docker.elastic.co）
 
 Obtaining Kibana for Docker is as simple as issuing a +docker pull+ command
 against the Elastic Docker registry.
@@ -69,18 +77,25 @@ services:
 
 [float]
 [[environment-variable-config]]
-==== Environment variable configuration
+==== Environment variable configuration  环境变量配置
 
 Under Docker, Kibana can be configured via environment variables. When
 the container starts, a helper process checks the environment for variables that
 can be mapped to Kibana command-line arguments.
+
+基于Docker 的Kibana 可以通过环境变量进行各种配置.当启动容器，一个帮助进程检查
+映射于命令行参数的各个环境变量。
 
 For compatibility with container orchestration systems, these
 environment variables are written in all capitals, with underscores as
 word separators. The helper translates these names to valid
 Kibana setting names.
 
+为了各版本容器的兼容性，这些环境变量全部以大写字母，和分隔单词的下划线组成。这样就可以把这些变量名转换成
+Kibana的设置名称。 
+
 Some example translations are shown here:
+下面是一些转换示例:
 
 .Example Docker Environment Variables
 [horizontal]
